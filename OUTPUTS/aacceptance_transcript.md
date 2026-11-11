@@ -1,0 +1,24 @@
+# Acceptance Test Transcript (20 Cases)
+
+| Id | Session | Question | Status | Intent | Confidence | Route | Attempts | Answer Text |
+| :--- | :--- | :--- | :--- | :--- | :---: | :--- | :---: | :--- |
+| A01 | s1 | What was Pune's revenue on 15 May 2026? | Answered | lookup | 1.0 | python | 1 | Pune's revenue on 2026-05-15 was INR 623845.00. |
+| A02 | s1 | And the target? | Answered | lookup | 1.0 | python | 1 | Pune's daily target on 2026-05-15 was INR 900000.00. |
+| A03 | s1 | How about Mumbai? | Answered | lookup | 1.0 | python | 1 | Mumbai's daily target on 2026-05-15 was INR 1050000.00. |
+| A04 | s2 | How is Hyderabad doing? | Clarification Needed | lookup | 0.4 | none | 0 | Clarification needed: please specify which metric you want (revenue, daily target, footfall, stockout hours, or discount) and which date or date range you want (in YYYY-MM-DD or D Month YYYY format, or between <date> and <date>). |
+| A05 | s2 | revenue on 2026-05-15 | Answered | lookup | 1.0 | python | 1 | Hyderabad's revenue on 2026-05-15 was INR 786399.27. |
+| A06 | s3 | What was Hydrabad's turnover yesterday? | Answered | lookup | 0.94 | python | 1 | Hyderabad's revenue on 2026-06-29 was INR 784954.90. |
+| A07 | s4 | Did Pune hit its target on 2026-05-16? | Drafted | target_vs_actual | 1.0 | python | 1 | On 2026-05-16, Pune did not hit its target: actual revenue was INR 671332.65 against a target of INR 900000.00 (74.59% achievement, Poor band). |
+| A08 | s4 | Did Pune hit its target on 2026-05-20? | Answered | target_vs_actual | 1.0 | python | 1 | On 2026-05-20, Pune did not hit its target: actual revenue was INR 677739.77 against a target of INR 900000.00 (75.30% achievement, Good band). |
+| A09 | s4 | Did Mumbai hit its target on 2026-05-21? | Answered | target_vs_actual | 1.0 | python | 1 | On 2026-05-21, Mumbai hit its target: actual revenue was INR 1133910.49 against a target of INR 1050000.00 (107.99% achievement, Excellent band). |
+| A10 | s5 | Which store had the highest average revenue between 2026-05-01 and 2026-05-31? | Answered | comparison | 1.0 | sql | 1 | The store with the highest revenue (2026-05-01 to 2026-05-31) was Mumbai (INR 1071614.03). Full ranking: Mumbai INR 1071614.03; Bengaluru INR 916766.02; Hyderabad INR 900317.89; Ahmedabad INR 798849.31; Pune INR 643251.34. |
+| A11 | s5 | Which store had the lowest revenue on 2026-06-10? | Answered | comparison | 1.0 | sql | 1 | The store with the lowest revenue (2026-06-10) was Pune (INR 602942.85). Full ranking: Pune INR 602942.85; Hyderabad INR 807522.21; Ahmedabad INR 819290.32; Bengaluru INR 848248.05; Mumbai INR 903822.34. |
+| A12 | s6 | Which stores are below the reorder threshold for Amul Milk? | Answered | inventory | 1.0 | sql | 1 | Stores strictly below the reorder threshold for Amul Milk 1L: Hyderabad (40 units against threshold 100), Pune (85 units against threshold 100). |
+| A13 | s6 | What are customers saying about Hyderabad? | Answered | feedback | 1.0 | sql | 1 | Customer feedback for Hyderabad: average rating 2.63 (38 rated of 40 total reviews), most frequent theme is Stock availability. |
+| A14 | s7 | What was Pune's profit margin on 2026-05-15? | Safe Failure | unsupported_metric | 1.0 | none | 0 | The requested metric field is not available in the approved field list. Approved store metrics are revenue, daily target, footfall, stockout hours, discount percentage, target achievement, inventory stock units, and customer feedback ratings. |
+| A15 | s8 | What is the capital of India? | Escalated | out_of_scope | 1.0 | none | 0 | This request is out of scope for the regional store analytics assistant. I can only answer read-only questions about approved store metrics, inventory thresholds, customer feedback, and store weather. |
+| A16 | s9 | What was Mumbai's revenue on 2026-07-15? | Safe Failure | lookup | 1.0 | none | 0 | The requested date is outside the available data range. Data is only available from 2026-04-01 to 2026-06-29. |
+| A17 | s10 | Why is Pune's revenue so low? | Escalated | diagnostic | 1.0 | none | 0 | Diagnostic and causal questions about why performance changed cannot be answered automatically; a human analyst is needed to investigate root causes. |
+| A18 | s11 | What was Kolkata's revenue on 2026-05-15? | Clarification Needed | lookup | 0.4 | none | 0 | Clarification needed: please specify which store you want (Mumbai, Pune, Hyderabad, Bengaluru, Ahmedabad). |
+| A19 | s12 | What was Pune's revenue on 15 May 2026? | Answered | lookup | 1.0 | python | 3 | Pune's revenue on 2026-05-15 was INR 623845.00. |
+| A20 | s13 | What was Pune's revenue on 15 May 2026? | Escalated | lookup | 1.0 | python | 3 | The data query failed after three attempts due to a database or tool error. This request has been escalated. |
