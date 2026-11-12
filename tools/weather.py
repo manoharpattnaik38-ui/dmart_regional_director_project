@@ -1,4 +1,3 @@
-"""Weather tool supporting deterministic stub mode (default) and Open-Meteo live archive mode."""
 import json
 import os
 import re
