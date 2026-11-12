@@ -1,4 +1,3 @@
-"""Response builder enforcing number formats, status precedence, evidence, and grounding checks."""
 import re
 from agent.fetch import format_2dec
 from agent.understand import PRODUCTS, STORES
