@@ -1,4 +1,3 @@
-
 import os
 from decimal import Decimal, ROUND_HALF_UP
 import numpy as np
