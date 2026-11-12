@@ -1,4 +1,3 @@
-"""Run the 20 acceptance cases through handle() and write logs/runs.jsonl and outputs/acceptance_transcript.md."""
 import os
 import sys
 
