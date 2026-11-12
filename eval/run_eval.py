@@ -1,10 +1,3 @@
----
-
-## 4. `eval/run_eval.py`
-
-Save this file at `eval/run_eval.py` and run `python eval/run_eval.py` from the repository root. It sets `WEATHER_MODE=stub` and `AGENT_LOG_PATH=eval/eval_runs.jsonl` (emptying `eval/eval_runs.jsonl` first while leaving `logs/runs.jsonl` untouched as the 20-line acceptance log), evaluates all 38 cases in `eval/golden_set.csv` (including the `0.01` decimal tolerance matcher), writes `eval/eval_results.csv`, and generates `eval/eval_summary.md` and `docs/release_gate.md` directly from the measured numbers[cite: 16, 17]:
-
-```python
 """Evaluation harness running eval/golden_set.csv, writing eval_results.csv, eval_summary.md, and release_gate.md."""
 import csv
 import json
@@ -24,7 +17,6 @@ def substring_matches_with_tolerance(sub, answer_text, tol=0.01):
     """Return True if sub is in answer_text, or matches within 0.01 on decimal figures."""
     if sub in answer_text:
         return True
-    # Check if sub contains a decimal figure
     m = DEC_RE.search(sub)
     if not m:
         return False
@@ -56,7 +48,6 @@ def main():
     os.makedirs("eval", exist_ok=True)
     os.makedirs("docs", exist_ok=True)
 
-    # Empty eval/eval_runs.jsonl first
     with open("eval/eval_runs.jsonl", "w", encoding="utf-8") as f:
         pass
 
@@ -104,7 +95,6 @@ def main():
 
     os.environ["SIMULATE_DB_FAILURES"] = "0"
 
-    # Write eval/eval_results.csv
     fieldnames = [
         "case_id", "category", "expected_status", "actual_status",
         "intent_match", "contains_match", "latency_ms", "tokens_est",
