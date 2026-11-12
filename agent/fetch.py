@@ -1,4 +1,3 @@
-"""Data access and validation layer using Python lookups and local SQLite with retry logic."""
 import os
 import sqlite3
 from decimal import Decimal, ROUND_HALF_UP
