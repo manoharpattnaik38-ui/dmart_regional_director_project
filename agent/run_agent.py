@@ -1,4 +1,3 @@
-"""Main agent entrypoint exposing handle(question, session_id, user_id='u1') and JSONL audit logging."""
 import json
 import os
 import time
