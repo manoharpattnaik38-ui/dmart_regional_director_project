@@ -1,4 +1,3 @@
-"""Deterministic natural-language interpreter for the DMart regional analytics assistant."""
 import re
 from datetime import date as dt_date, timedelta
 from difflib import SequenceMatcher
