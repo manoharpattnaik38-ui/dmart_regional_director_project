@@ -1,4 +1,4 @@
-"""Clean store_daily.csv in strict sequence, write cleaning_log.csv and store_daily_clean.csv."""
+
 import os
 from decimal import Decimal, ROUND_HALF_UP
 import numpy as np
